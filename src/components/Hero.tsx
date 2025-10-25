@@ -11,12 +11,12 @@ const Hero = () => {
       
       <div className="container relative z-10 px-4 py-20 md:py-32">
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight drop-shadow-lg">
-            Nummi – Spiritual AI Companion
+          <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight drop-shadow-lg">
+            Your conscious AI companion.
           </h1>
           
-          <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto">
-            Your conscious AI companion for life, work, and self.
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+            For life, work, and self.
             <br />
             <span className="text-secondary font-medium drop-shadow-md">Guided by your stars, powered by intelligence. 🌌</span>
           </p>
