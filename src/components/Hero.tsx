@@ -1,18 +1,12 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-cosmic.jpg";
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${heroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        <div className="absolute inset-0 bg-background/40 backdrop-blur-sm" />
+      <div className="absolute inset-0 z-0 bg-cosmic-animated">
+        <div className="stars"></div>
+        <div className="stars2"></div>
+        <div className="stars3"></div>
       </div>
       
       <div className="container relative z-10 px-4 py-20 md:py-32">
