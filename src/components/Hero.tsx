@@ -11,7 +11,7 @@ const Hero = () => {
       
       <div className="container relative z-10 px-4 py-20 md:py-32">
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
-          <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight drop-shadow-lg">
+          <h1 className="text-5xl md:text-7xl font-bold leading-tight bg-gradient-to-r from-white via-secondary to-white bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,255,255,0.5)] animate-fade-in">
             Your conscious AI companion.
           </h1>
           
