@@ -20,7 +20,7 @@ const Pricing = () => {
             <div className="mb-6">
               <h3 className="text-2xl font-bold text-foreground mb-2">Free</h3>
               <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-foreground">₹0</span>
+                <span className="text-4xl font-bold text-foreground">$0</span>
                 <span className="text-muted-foreground">/month</span>
               </div>
             </div>
@@ -65,10 +65,15 @@ const Pricing = () => {
             <div className="mb-6">
               <h3 className="text-2xl font-bold text-primary-foreground mb-2">Premium</h3>
               <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-primary-foreground">₹299</span>
+                <span className="text-4xl font-bold text-primary-foreground">$8.99</span>
                 <span className="text-primary-foreground/80">/month</span>
               </div>
-              <p className="text-primary-foreground/70 text-sm mt-2">or ₹1,999/year (save 33%)</p>
+              <p className="text-primary-foreground/70 text-sm mt-2">
+                or $59.99/year (save 44%)
+              </p>
+              <p className="text-primary-foreground/60 text-xs mt-1">
+                India: ₹299/month or ₹1,999/year
+              </p>
             </div>
 
             <ul className="space-y-3 mb-8">
