@@ -1,7 +1,37 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const Pricing = () => {
+  const [region, setRegion] = useState<'US' | 'IN'>('US');
+
+  useEffect(() => {
+    // Simple timezone-based detection (no API needed!)
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if (timezone.includes('Asia/Kolkata') || timezone.includes('Asia/Calcutta')) {
+      setRegion('IN');
+    } else {
+      setRegion('US');
+    }
+  }, []);
+
+  const pricing = {
+    US: {
+      currency: '$',
+      monthly: '8.99',
+      yearly: '59.99',
+      yearlyDiscount: 'save 44%'
+    },
+    IN: {
+      currency: '₹',
+      monthly: '299',
+      yearly: '1,999',
+      yearlyDiscount: 'save 33%'
+    }
+  };
+
+  const current = pricing[region];
+
   return (
     <section className="py-20 md:py-32 bg-card">
       <div className="container px-4">
@@ -20,7 +50,9 @@ const Pricing = () => {
             <div className="mb-6">
               <h3 className="text-2xl font-bold text-foreground mb-2">Free</h3>
               <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-foreground">$0</span>
+                <span className="text-4xl font-bold text-foreground">
+                  {current.currency}0
+                </span>
                 <span className="text-muted-foreground">/month</span>
               </div>
             </div>
@@ -65,14 +97,13 @@ const Pricing = () => {
             <div className="mb-6">
               <h3 className="text-2xl font-bold text-primary-foreground mb-2">Premium</h3>
               <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-primary-foreground">$8.99</span>
+                <span className="text-4xl font-bold text-primary-foreground">
+                  {current.currency}{current.monthly}
+                </span>
                 <span className="text-primary-foreground/80">/month</span>
               </div>
               <p className="text-primary-foreground/70 text-sm mt-2">
-                or $59.99/year (save 44%)
-              </p>
-              <p className="text-primary-foreground/60 text-xs mt-1">
-                India: ₹299/month or ₹1,999/year
+                or {current.currency}{current.yearly}/year ({current.yearlyDiscount})
               </p>
             </div>
 
@@ -117,6 +148,15 @@ const Pricing = () => {
               </Button>
             </a>
           </div>
+        </div>
+
+        {/* Regional Pricing Note */}
+        <div className="text-center mt-8">
+          <p className="text-sm text-muted-foreground">
+            {region === 'IN' 
+              ? '🌍 International pricing: $8.99/month or $59.99/year' 
+              : '🇮🇳 India pricing: ₹299/month or ₹1,999/year'}
+          </p>
         </div>
       </div>
     </section>
