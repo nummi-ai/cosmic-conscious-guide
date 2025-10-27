@@ -149,15 +149,6 @@ const Pricing = () => {
             </a>
           </div>
         </div>
-
-        {/* Regional Pricing Note */}
-        <div className="text-center mt-8">
-          <p className="text-sm text-muted-foreground">
-            {region === 'IN' 
-              ? '🌍 International pricing: $8.99/month or $59.99/year' 
-              : '🇮🇳 India pricing: ₹299/month or ₹1,999/year'}
-          </p>
-        </div>
       </div>
     </section>
   );
