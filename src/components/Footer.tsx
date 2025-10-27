@@ -84,7 +84,7 @@ const Footer = () => {
 
           <div className="pt-6 border-t border-border">
             <p className="text-sm text-muted-foreground">
-              © {currentYear} Nummi AI Inc. Bringing consciousness to AI.
+              © {currentYear} Nummi AI Inc.
             </p>
           </div>
         </div>
