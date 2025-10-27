@@ -1,4 +1,4 @@
-import { Sparkles, MessageCircle, Sun } from "lucide-react";
+import { Sparkles, MessageCircle, Sun, Heart } from "lucide-react";
 
 const features = [
   {
@@ -16,6 +16,11 @@ const features = [
     title: "Daily Cosmos Insights",
     description: "Get your personalized daily horoscope based on accurate Vedic readings. Share your cosmic message with friends — it's like getting a note from the universe every morning.",
   },
+  {
+    icon: Heart,
+    title: "Deep Spiritual Guidance",
+    description: "Experience personalized guidance tailored to your unique soul journey. Get answers to life's biggest questions with wisdom rooted in ancient Vedic traditions.",
+  },
 ];
 
 const Features = () => {
@@ -31,7 +36,7 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {features.map((feature, index) => (
             <div
               key={index}

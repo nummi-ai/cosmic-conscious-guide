@@ -21,7 +21,7 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
             <a 
-              href="https://play.google.com/store" 
+              href="https://play.google.com/store/apps/details?id=com.nummi.chat.mobile" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-full sm:w-auto"

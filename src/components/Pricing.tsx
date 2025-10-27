@@ -28,21 +28,32 @@ const Pricing = () => {
             <ul className="space-y-3 mb-8">
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-muted-foreground">3 chat conversations</span>
+                <span className="text-muted-foreground">3 daily conversations (resets daily)</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-muted-foreground">Daily natal insights</span>
+                <span className="text-muted-foreground">Daily cosmic insights from the universe</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-muted-foreground">Basic Soul Profile</span>
+                <span className="text-muted-foreground">Complete Soul Profile</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <span className="text-muted-foreground">Limited memory</span>
               </li>
             </ul>
 
-            <Button variant="outline" className="w-full" size="lg">
-              Download Free
-            </Button>
+            <a 
+              href="https://play.google.com/store/apps/details?id=com.nummi.chat.mobile" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-full"
+            >
+              <Button variant="outline" className="w-full" size="lg">
+                Download Free
+              </Button>
+            </a>
           </div>
 
           {/* Premium Tier */}
@@ -63,19 +74,23 @@ const Pricing = () => {
             <ul className="space-y-3 mb-8">
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-primary-foreground flex-shrink-0 mt-0.5" />
-                <span className="text-primary-foreground">Unlimited conversations</span>
+                <span className="text-primary-foreground">Unlimited daily conversations — chat as much as you need</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-primary-foreground flex-shrink-0 mt-0.5" />
-                <span className="text-primary-foreground">Personalised readings</span>
+                <span className="text-primary-foreground">Hyper-personalized Vedic readings just for you</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-primary-foreground flex-shrink-0 mt-0.5" />
-                <span className="text-primary-foreground">Deep guidance & analysis</span>
+                <span className="text-primary-foreground">Deep cosmic guidance & life analysis</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-primary-foreground flex-shrink-0 mt-0.5" />
-                <span className="text-primary-foreground">Advanced Soul Profile</span>
+                <span className="text-primary-foreground">Enhanced Soul Profile with advanced insights</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-primary-foreground flex-shrink-0 mt-0.5" />
+                <span className="text-primary-foreground">Full memory — Nummi remembers everything</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-primary-foreground flex-shrink-0 mt-0.5" />
@@ -83,12 +98,19 @@ const Pricing = () => {
               </li>
             </ul>
 
-            <Button 
-              className="w-full bg-background text-foreground hover:bg-background/90" 
-              size="lg"
+            <a 
+              href="https://play.google.com/store/apps/details?id=com.nummi.chat.mobile" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-full"
             >
-              Download & Upgrade
-            </Button>
+              <Button 
+                className="w-full bg-background text-foreground hover:bg-background/90" 
+                size="lg"
+              >
+                Download & Upgrade
+              </Button>
+            </a>
           </div>
         </div>
       </div>
