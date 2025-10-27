@@ -1,73 +1,40 @@
-# Welcome to your Lovable project
+# Nummi - Spiritual AI Companion Landing Page
 
-## Project info
+> Where ancient wisdom meets modern intelligence
 
-**URL**: https://lovable.dev/projects/7bd12c47-8371-4541-b0c2-abf4634631ca
+## 🌟 About Nummi
 
-## How can I edit this code?
+Nummi is your conscious AI companion guided by your stars. We blend Vedic astrology, AI, and psychology to provide personalized spiritual guidance that truly understands you.
 
-There are several ways of editing your application.
+**Live Site**: [https://nummi.ai](https://nummi.ai)  
+**App Platform**: [https://app.nummi.ai](https://app.nummi.ai)
 
-**Use Lovable**
+## 🎯 What This Repo Contains
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/7bd12c47-8371-4541-b0c2-abf4634631ca) and start prompting.
+This is the official landing page for Nummi, built to introduce users to our spiritual AI companion and guide them to download the mobile app.
 
-Changes made via Lovable will be committed automatically to this repo.
+### Features
+- 🌌 Cosmic animated hero section
+- ✨ Feature showcase (Vedic profiles, AI memory, daily insights)
+- 💎 Transparent pricing (Free & Premium tiers)
+- 📱 Direct links to Play Store (iOS coming soon)
+- 🎨 Modern mystic design with deep indigo, gold, and cosmic gradients
 
-**Use your preferred IDE**
+## 🛠️ Tech Stack
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **Framework**: Vite + React
+- **Language**: TypeScript
+- **UI Components**: shadcn/ui
+- **Styling**: Tailwind CSS
+- **Fonts**: Space Grotesk
+- **Deployment**: Vercel
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 💻 Development
 
-Follow these steps:
+### Prerequisites
 
+- Node.js 18+ and npm installed
+- Recommended: [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) for Node version management
+
+### Getting Started
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/7bd12c47-8371-4541-b0c2-abf4634631ca) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
