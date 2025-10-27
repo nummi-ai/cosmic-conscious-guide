@@ -1,25 +1,20 @@
-import { Sparkles, MessageCircle, Sun, User } from "lucide-react";
+import { Sparkles, MessageCircle, Sun } from "lucide-react";
 
 const features = [
   {
     icon: Sparkles,
-    title: "Personalised Guidance",
-    description: "Powered by your date, time, and place of birth for truly unique insights.",
+    title: "Instant Vedic Astrology Profile",
+    description: "Sign up and we automatically create your complete Vedic astrology profile — saved forever in your personal cosmic database.",
   },
   {
     icon: MessageCircle,
-    title: "Conversational Wisdom",
-    description: "Chat naturally and get insights rooted in Vedic and modern spirituality.",
+    title: "AI Companion with Memory",
+    description: "Nummi remembers every conversation, your birth chart, and your journey. Chat like you're talking to a friend who truly knows you — spiritual guide, therapist, and companion in one.",
   },
   {
     icon: Sun,
-    title: "Daily Alignment",
-    description: "Short, actionable prompts that help you make better choices every day.",
-  },
-  {
-    icon: User,
-    title: "Soul Profile",
-    description: "A personal profile that evolves and updates as you grow on your journey.",
+    title: "Daily Cosmos Insights",
+    description: "Get your personalized daily horoscope based on accurate Vedic readings. Share your cosmic message with friends — it's like getting a note from the universe every morning.",
   },
 ];
 
@@ -29,14 +24,14 @@ const Features = () => {
       <div className="container px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-            What We're Building
+            Everything you need for cosmic clarity
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ancient wisdom powered by modern intelligence
+            Three powerful features that transform how you connect with the universe
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {features.map((feature, index) => (
             <div
               key={index}

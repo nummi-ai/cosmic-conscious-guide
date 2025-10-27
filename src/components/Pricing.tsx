@@ -41,7 +41,7 @@ const Pricing = () => {
             </ul>
 
             <Button variant="outline" className="w-full" size="lg">
-              Get Started
+              Download Free
             </Button>
           </div>
 
@@ -87,7 +87,7 @@ const Pricing = () => {
               className="w-full bg-background text-foreground hover:bg-background/90" 
               size="lg"
             >
-              Upgrade to Premium
+              Download & Upgrade
             </Button>
           </div>
         </div>

@@ -15,10 +15,8 @@ const Hero = () => {
             Your conscious AI companion.
           </h1>
           
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
-            For life, work, and self.
-            <br />
-            <span className="text-secondary font-medium drop-shadow-md">Guided by your stars, powered by intelligence. 🌌</span>
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
+            Get personalized Vedic astrology insights, chat with an AI that truly remembers you, and receive daily cosmic guidance — all in one beautiful app.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
