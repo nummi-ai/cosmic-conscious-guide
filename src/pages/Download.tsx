@@ -32,12 +32,29 @@ const Download = () => {
 
     setIsLoading(true);
 
-    // Simulate API call (replace with your actual email collection endpoint)
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/subscribe-ios', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to subscribe');
+      }
+
       setIsSubmitted(true);
-      setIsLoading(false);
       setEmail("");
-    }, 1000);
+    } catch (error) {
+      console.error('Error submitting email:', error);
+      alert('Oops! Something went wrong. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
