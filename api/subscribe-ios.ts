@@ -22,7 +22,7 @@ export default async function handler(
 
     // Send notification email to yourself
     await resend.emails.send({
-      from: 'Nummi iOS Waitlist <onboarding@resend.dev>', // Change this to your verified domain
+      from: 'Nummi <noreply@mail.nummi.ai>',
       to: process.env.NOTIFICATION_EMAIL || 'your-email@example.com', // Your email to receive notifications
       subject: '🎉 New iOS Waitlist Signup',
       html: `
@@ -41,7 +41,7 @@ export default async function handler(
 
     // Optionally: Send confirmation email to the user
     await resend.emails.send({
-      from: 'Nummi <onboarding@resend.dev>', // Change this to your verified domain
+      from: 'Nummi <noreply@mail.nummi.ai>',
       to: email,
       subject: "You're on the Nummi iOS waitlist! 🌟",
       html: `
