@@ -33,7 +33,7 @@ const Pricing = () => {
   const current = pricing[region];
 
   return (
-    <section className="py-20 md:py-32 bg-card">
+    <section id="pricing" className="py-20 md:py-32 bg-gradient-warm scroll-mt-20">
       <div className="container px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
@@ -46,7 +46,7 @@ const Pricing = () => {
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Free Tier */}
-          <div className="bg-background p-8 rounded-2xl shadow-soft border border-border">
+          <div className="bg-card p-8 rounded-2xl shadow-soft border border-border">
             <div className="mb-6">
               <h3 className="text-2xl font-bold text-foreground mb-2">Free</h3>
               <div className="flex items-baseline gap-2">

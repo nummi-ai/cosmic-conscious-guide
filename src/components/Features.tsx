@@ -25,7 +25,7 @@ const features = [
 
 const Features = () => {
   return (
-    <section className="py-20 md:py-32 bg-gradient-warm">
+    <section id="features" className="py-20 md:py-32 bg-gradient-warm scroll-mt-20">
       <div className="container px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
