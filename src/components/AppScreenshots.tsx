@@ -18,20 +18,7 @@ const AppScreenshots = () => {
             {/* Screenshot 1 */}
             <div className="flex flex-col items-center space-y-4 animate-fade-in">
               <div className="relative w-full max-w-[280px] aspect-[9/19.5] bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl shadow-soft border border-border overflow-hidden">
-                {/* Placeholder - Replace with actual image */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <svg className="w-16 h-16 mx-auto mb-4 text-primary/30" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                      <rect x="3" y="3" width="18" height="18" rx="2" strokeWidth="2"/>
-                      <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/>
-                      <path d="M21 15l-5-5L5 21" strokeWidth="2" strokeLinecap="round"/>
-                    </svg>
-                    <p className="text-sm text-muted-foreground">App Screenshot 1</p>
-                    <p className="text-xs text-muted-foreground/60 mt-1">Replace in VSCode</p>
-                  </div>
-                </div>
-                {/* To add your image, use: */}
-                {/* <img src="/path-to-your-image.png" alt="Chat Interface" className="w-full h-full object-cover" /> */}
+                <img src="/13993@3x.png" alt="AI Conversations - Chat Interface" className="w-full h-full object-cover" />
               </div>
               <div className="text-center">
                 <h3 className="font-semibold text-foreground mb-1">AI Conversations</h3>
@@ -42,20 +29,7 @@ const AppScreenshots = () => {
             {/* Screenshot 2 */}
             <div className="flex flex-col items-center space-y-4 animate-fade-in" style={{ animationDelay: '0.1s' }}>
               <div className="relative w-full max-w-[280px] aspect-[9/19.5] bg-gradient-to-br from-secondary/10 to-tertiary/10 rounded-3xl shadow-soft border border-border overflow-hidden">
-                {/* Placeholder - Replace with actual image */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <svg className="w-16 h-16 mx-auto mb-4 text-secondary/30" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                      <rect x="3" y="3" width="18" height="18" rx="2" strokeWidth="2"/>
-                      <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/>
-                      <path d="M21 15l-5-5L5 21" strokeWidth="2" strokeLinecap="round"/>
-                    </svg>
-                    <p className="text-sm text-muted-foreground">App Screenshot 2</p>
-                    <p className="text-xs text-muted-foreground/60 mt-1">Replace in VSCode</p>
-                  </div>
-                </div>
-                {/* To add your image, use: */}
-                {/* <img src="/path-to-your-image.png" alt="Astrology Insights" className="w-full h-full object-cover" /> */}
+                <img src="/1325@3x.png" alt="Vedic Astrology - Cosmic Insights" className="w-full h-full object-cover" />
               </div>
               <div className="text-center">
                 <h3 className="font-semibold text-foreground mb-1">Vedic Astrology</h3>
@@ -66,20 +40,7 @@ const AppScreenshots = () => {
             {/* Screenshot 3 */}
             <div className="flex flex-col items-center space-y-4 animate-fade-in" style={{ animationDelay: '0.2s' }}>
               <div className="relative w-full max-w-[280px] aspect-[9/19.5] bg-gradient-to-br from-tertiary/10 to-primary/10 rounded-3xl shadow-soft border border-border overflow-hidden">
-                {/* Placeholder - Replace with actual image */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <svg className="w-16 h-16 mx-auto mb-4 text-tertiary/30" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                      <rect x="3" y="3" width="18" height="18" rx="2" strokeWidth="2"/>
-                      <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/>
-                      <path d="M21 15l-5-5L5 21" strokeWidth="2" strokeLinecap="round"/>
-                    </svg>
-                    <p className="text-sm text-muted-foreground">App Screenshot 3</p>
-                    <p className="text-xs text-muted-foreground/60 mt-1">Replace in VSCode</p>
-                  </div>
-                </div>
-                {/* To add your image, use: */}
-                {/* <img src="/path-to-your-image.png" alt="Daily Guidance" className="w-full h-full object-cover" /> */}
+                <img src="/13992@3x.png" alt="Daily Guidance - Cosmic Wisdom" className="w-full h-full object-cover" />
               </div>
               <div className="text-center">
                 <h3 className="font-semibold text-foreground mb-1">Daily Guidance</h3>
