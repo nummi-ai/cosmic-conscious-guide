@@ -112,7 +112,7 @@ const Download = () => {
                 </div>
 
                 <h1 className="text-4xl md:text-6xl font-bold text-foreground">
-                  Coming soon to iOS ✨
+                  Coming soon to iOS
                 </h1>
 
                 <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto leading-relaxed">
