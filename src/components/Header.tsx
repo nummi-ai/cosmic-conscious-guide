@@ -56,7 +56,7 @@ const Header = () => {
               href="/"
               className="flex items-center gap-2 hover:opacity-80 transition-opacity"
             >
-              <svg width="48" height="52" viewBox="0 0 800 869" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="36" height="39" viewBox="0 0 800 869" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M163.215 208.936C169.715 202.015 176.504 195.391 183.563 189.08L411.266 107.556C420.726 107.952 430.177 108.763 439.593 109.985L163.215 208.936Z" fill="url(#paint0_linear_22_47)"/>
                 <path d="M134.254 244.445C138.418 238.545 142.764 232.798 147.284 227.21L463.502 113.995C470.541 115.444 477.547 117.127 484.51 119.044L134.254 244.445Z" fill="url(#paint1_linear_22_47)"/>
                 <path d="M114.094 276.805C117.041 271.411 120.126 266.115 123.346 260.922L503.397 124.853C509.181 126.822 514.927 128.956 520.627 131.255L114.094 276.805Z" fill="url(#paint2_linear_22_47)"/>
@@ -210,7 +210,7 @@ const Header = () => {
                   </linearGradient>
                 </defs>
               </svg>
-              <span className="text-xl font-bold text-foreground">Nummi</span>
+              <span className="text-2xl font-bold text-foreground">Nummi</span>
             </a>
 
             {/* Desktop Navigation */}
