@@ -2,8 +2,18 @@ import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-warm">
-      <div className="container px-4 py-20 md:py-32">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-warm">
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/5 animate-gradient"></div>
+
+      {/* Floating subtle shapes */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/5 rounded-full blur-3xl animate-float-delayed"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-tertiary/5 rounded-full blur-3xl animate-float-slow"></div>
+      </div>
+
+      <div className="container relative z-10 px-4 py-20 md:py-32">
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl font-bold leading-tight text-foreground">
@@ -54,30 +64,6 @@ const Hero = () => {
                 </span>
               </Button>
             </a>
-          </div>
-
-          {/* Subtle decorative element */}
-          <div className="pt-12 flex justify-center gap-2 text-muted-foreground text-sm">
-            <span className="inline-flex items-center gap-2">
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-              </svg>
-              Vedic Astrology
-            </span>
-            <span className="px-2 text-border">•</span>
-            <span className="inline-flex items-center gap-2">
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"/>
-              </svg>
-              AI Memory
-            </span>
-            <span className="px-2 text-border">•</span>
-            <span className="inline-flex items-center gap-2">
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 3H18V1H16V3H8V1H6V3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 19H5V9H19V19ZM5 7V5H19V7H5Z"/>
-              </svg>
-              Daily Guidance
-            </span>
           </div>
         </div>
       </div>
