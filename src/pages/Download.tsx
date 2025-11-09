@@ -62,7 +62,7 @@ const Download = () => {
     <div className="min-h-screen bg-gradient-warm flex flex-col">
       <Header />
       <section className="relative flex-1 flex items-center justify-center pt-20">
-        <div className="container px-4 py-6 md:py-10">
+        <div className="container px-4 py-4 md:py-8">
           <div className="max-w-2xl mx-auto">
             {/* Android Users - Redirecting */}
             {deviceType === "android" && (
