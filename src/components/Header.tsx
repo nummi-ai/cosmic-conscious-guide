@@ -54,7 +54,7 @@ const Header = () => {
             {/* Logo */}
             <a
               href="/"
-              className="hover:opacity-80 transition-opacity"
+              className="flex items-center gap-2 hover:opacity-80 transition-opacity"
             >
               <svg width="48" height="52" viewBox="0 0 800 869" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M163.215 208.936C169.715 202.015 176.504 195.391 183.563 189.08L411.266 107.556C420.726 107.952 430.177 108.763 439.593 109.985L163.215 208.936Z" fill="url(#paint0_linear_22_47)"/>
@@ -210,6 +210,7 @@ const Header = () => {
                   </linearGradient>
                 </defs>
               </svg>
+              <span className="text-xl font-bold text-foreground">Nummi</span>
             </a>
 
             {/* Desktop Navigation */}
