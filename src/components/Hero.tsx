@@ -13,7 +13,7 @@ const Hero = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-tertiary/10 rounded-full blur-3xl animate-float-slow"></div>
       </div>
 
-      <div className="container relative z-10 px-4 py-20 md:py-32">
+      <div className="container relative z-10 px-4 py-10 md:py-16">
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
           {/* Logo */}
           <div className="flex justify-center mb-8">
