@@ -61,7 +61,7 @@ const Download = () => {
   return (
     <div className="min-h-screen bg-gradient-warm flex flex-col">
       <Header />
-      <section className="relative flex-1 pt-16 md:pt-20">
+      <section className="relative flex-1 pt-16 md:pt-20 pb-12 md:pb-16">
         <div className="container px-4">
           <div className="max-w-2xl mx-auto">
             {/* Android Users - Redirecting */}
