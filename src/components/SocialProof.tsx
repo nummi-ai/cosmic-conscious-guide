@@ -28,13 +28,13 @@ const SocialProof = () => {
             </div>
 
             <div className="bg-card p-8 rounded-2xl shadow-soft border border-border text-center">
-              <div className="text-4xl md:text-5xl font-bold text-foreground mb-2">4.8★</div>
+              <div className="text-4xl md:text-5xl font-bold text-foreground mb-2">5.0★</div>
               <div className="text-muted-foreground font-medium">App Rating</div>
               <div className="text-sm text-muted-foreground/70 mt-1">On Google Play</div>
             </div>
 
             <div className="bg-card p-8 rounded-2xl shadow-soft border border-border text-center">
-              <div className="text-4xl md:text-5xl font-bold text-foreground mb-2">10K+</div>
+              <div className="text-4xl md:text-5xl font-bold text-foreground mb-2">2K+</div>
               <div className="text-muted-foreground font-medium">Messages</div>
               <div className="text-sm text-muted-foreground/70 mt-1">AI conversations daily</div>
             </div>
