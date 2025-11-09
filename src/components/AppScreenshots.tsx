@@ -1,6 +1,6 @@
 const AppScreenshots = () => {
   return (
-    <section className="py-20 md:py-32 bg-background">
+    <section id="screenshots" className="py-20 md:py-32 bg-background scroll-mt-20">
       <div className="container px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}

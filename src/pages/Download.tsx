@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const Download = () => {
@@ -59,7 +60,8 @@ const Download = () => {
 
   return (
     <div className="min-h-screen bg-gradient-warm flex flex-col">
-      <section className="relative flex-1 flex items-center justify-center">
+      <Header />
+      <section className="relative flex-1 flex items-center justify-center pt-20">
         <div className="container px-4 py-12 md:py-20">
           <div className="max-w-2xl mx-auto">
             {/* Android Users - Redirecting */}

@@ -1,6 +1,6 @@
 const Vision = () => {
   return (
-    <section className="py-20 md:py-32 bg-card">
+    <section className="py-20 md:py-32 bg-background">
       <div className="container px-4">
         <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground">
