@@ -112,11 +112,11 @@ const Download = () => {
                 </div>
 
                 <h1 className="text-4xl md:text-6xl font-bold text-foreground">
-                  iOS App Coming Soon
+                  Coming soon to iOS ✨
                 </h1>
 
                 <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto leading-relaxed">
-                  We're working hard to bring Nummi to the App Store. Want to be notified when we launch?
+                  Nummi is almost here. Sign up to get early access.
                 </p>
 
                 {/* Email Capture Form */}
@@ -180,6 +180,22 @@ const Download = () => {
                     </Button>
                   </a>
                 </div>
+
+                {/* Follow on TikTok */}
+                <div className="pt-8">
+                  <p className="text-muted-foreground mb-3 text-sm">Follow us for updates</p>
+                  <a
+                    href="https://www.tiktok.com/@nummiapp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors"
+                  >
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    </svg>
+                    <span className="font-medium">@nummiapp</span>
+                  </a>
+                </div>
               </div>
             )}
 
@@ -226,7 +242,7 @@ const Download = () => {
                         <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z" />
                       </svg>
                       <h3 className="text-2xl font-bold text-foreground">iOS</h3>
-                      <p className="text-muted-foreground text-center text-sm">Coming soon to the App Store</p>
+                      <p className="text-muted-foreground text-center text-sm">Coming soon ✨</p>
 
                       {!isSubmitted ? (
                         <form onSubmit={handleEmailSubmit} className="w-full space-y-3">
