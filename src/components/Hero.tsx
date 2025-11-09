@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-warm">
+    <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-warm">
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/5 animate-gradient"></div>
 

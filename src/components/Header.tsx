@@ -27,6 +27,9 @@ const Header = () => {
         behavior: "smooth"
       });
       setIsMobileMenuOpen(false);
+    } else {
+      // If section not found on current page, navigate to home page with hash
+      window.location.href = `/#${sectionId}`;
     }
   };
 
