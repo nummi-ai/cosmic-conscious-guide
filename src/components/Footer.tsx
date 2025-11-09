@@ -49,8 +49,8 @@ const Footer = () => {
             >
               <Instagram className="w-5 h-5" />
             </a>
-            <a 
-              href="https://www.tiktok.com/@getnummi" 
+            <a
+              href="https://www.tiktok.com/@nummiapp"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
