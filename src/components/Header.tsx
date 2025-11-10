@@ -37,7 +37,8 @@ const Header = () => {
     { name: "Preview", id: "screenshots" },
     { name: "Features", id: "features" },
     { name: "Pricing", id: "pricing" },
-    { name: "FAQ", id: "faq" }
+    { name: "FAQ", id: "faq" },
+    { name: "Blog", id: "blog", isLink: true }
   ];
 
   return (
@@ -216,13 +217,23 @@ const Header = () => {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => scrollToSection(link.id)}
-                  className="text-foreground/70 hover:text-foreground transition-colors font-medium"
-                >
-                  {link.name}
-                </button>
+                link.isLink ? (
+                  <a
+                    key={link.id}
+                    href={`/${link.id}`}
+                    className="text-foreground/70 hover:text-foreground transition-colors font-medium"
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <button
+                    key={link.id}
+                    onClick={() => scrollToSection(link.id)}
+                    className="text-foreground/70 hover:text-foreground transition-colors font-medium"
+                  >
+                    {link.name}
+                  </button>
+                )
               ))}
             </nav>
 
@@ -261,13 +272,23 @@ const Header = () => {
           <div className="md:hidden bg-background/95 backdrop-blur-xl border-t border-border/50">
             <div className="container mx-auto px-4 py-6 space-y-4">
               {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => scrollToSection(link.id)}
-                  className="block w-full text-left py-2 text-foreground/70 hover:text-foreground transition-colors font-medium"
-                >
-                  {link.name}
-                </button>
+                link.isLink ? (
+                  <a
+                    key={link.id}
+                    href={`/${link.id}`}
+                    className="block w-full text-left py-2 text-foreground/70 hover:text-foreground transition-colors font-medium"
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <button
+                    key={link.id}
+                    onClick={() => scrollToSection(link.id)}
+                    className="block w-full text-left py-2 text-foreground/70 hover:text-foreground transition-colors font-medium"
+                  >
+                    {link.name}
+                  </button>
+                )
               ))}
               <a
                 href="/download"
