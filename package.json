@@ -4,12 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "npm run generate-sitemap && vite build",
+    "dev": "npm run generate-blog-data && vite",
+    "build": "npm run generate-blog-data && npm run generate-sitemap && vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
-    "generate-sitemap": "node scripts/generate-sitemap.js"
+    "generate-sitemap": "node scripts/generate-sitemap.js",
+    "generate-blog-data": "node scripts/generate-blog-data.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

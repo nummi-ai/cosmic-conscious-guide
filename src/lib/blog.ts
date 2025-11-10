@@ -1,9 +1,5 @@
-import matter from 'gray-matter';
-
-// Import markdown files directly
-import whatIsSpiritualAI from '../content/blog/what-is-spiritual-ai.md?raw';
-import aiMeditationGuide from '../content/blog/ai-meditation-guide.md?raw';
-import bestAICompanionApps from '../content/blog/best-ai-companion-apps.md?raw';
+// Import pre-generated blog data
+import blogData from './blog-data.json';
 
 export interface BlogPost {
   slug: string;
@@ -19,45 +15,9 @@ export interface BlogPost {
   readingTime: string;
 }
 
-// List of all blog post markdown content
-const blogPostsRaw = [
-  whatIsSpiritualAI,
-  aiMeditationGuide,
-  bestAICompanionApps,
-];
-
-// Calculate reading time (simple estimation: 200 words per minute)
-function calculateReadingTime(content: string): string {
-  const wordsPerMinute = 200;
-  const words = content.trim().split(/\s+/).length;
-  const minutes = Math.ceil(words / wordsPerMinute);
-  return `${minutes} min read`;
-}
-
-// Parse blog posts from markdown files
+// Get all blog posts (already processed at build time)
 export function getAllPosts(): BlogPost[] {
-  const posts: BlogPost[] = [];
-
-  for (const rawContent of blogPostsRaw) {
-    const { data, content: markdownContent } = matter(rawContent);
-
-    posts.push({
-      slug: data.slug,
-      title: data.title,
-      description: data.description,
-      author: data.author || 'Nummi Team',
-      date: data.date,
-      category: data.category,
-      tags: data.tags || [],
-      image: data.image,
-      featured: data.featured || false,
-      content: markdownContent,
-      readingTime: calculateReadingTime(markdownContent),
-    });
-  }
-
-  // Sort by date (newest first)
-  return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return blogData as BlogPost[];
 }
 
 // Get a single post by slug
