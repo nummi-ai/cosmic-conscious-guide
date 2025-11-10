@@ -1,5 +1,10 @@
 import matter from 'gray-matter';
 
+// Import markdown files directly
+import whatIsSpiritualAI from '../content/blog/what-is-spiritual-ai.md?raw';
+import aiMeditationGuide from '../content/blog/ai-meditation-guide.md?raw';
+import bestAICompanionApps from '../content/blog/best-ai-companion-apps.md?raw';
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -14,12 +19,12 @@ export interface BlogPost {
   readingTime: string;
 }
 
-// Import all markdown files from blog directory
-const blogPosts = import.meta.glob('/src/content/blog/*.md', {
-  query: '?raw',
-  import: 'default',
-  eager: true
-});
+// List of all blog post markdown content
+const blogPostsRaw = [
+  whatIsSpiritualAI,
+  aiMeditationGuide,
+  bestAICompanionApps,
+];
 
 // Calculate reading time (simple estimation: 200 words per minute)
 function calculateReadingTime(content: string): string {
@@ -33,9 +38,8 @@ function calculateReadingTime(content: string): string {
 export function getAllPosts(): BlogPost[] {
   const posts: BlogPost[] = [];
 
-  for (const path in blogPosts) {
-    const content = blogPosts[path];
-    const { data, content: markdownContent } = matter(content);
+  for (const rawContent of blogPostsRaw) {
+    const { data, content: markdownContent } = matter(rawContent);
 
     posts.push({
       slug: data.slug,
