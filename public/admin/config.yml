@@ -1,16 +1,27 @@
+# Decap CMS Configuration for Nummi Blog
+# Documentation: https://decapcms.org/docs/configuration-options/
+
 backend:
   name: github
   repo: nummi-ai/cosmic-conscious-guide
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
+  # For GitHub OAuth, you'll need to set up authentication
+  # See: https://decapcms.org/docs/github-backend/
 
 # Uncomment for local development
 # local_backend: true
 
+# Media storage configuration
 media_folder: "public/blog/images"
 public_folder: "/blog/images"
 
+# Optional: Use a media library service
+# media_library:
+#   name: uploadcare
+#   config:
+#     publicKey: your_uploadcare_public_key
+
+# Blog post collection
 collections:
   - name: "blog"
     label: "Blog Posts"
@@ -22,19 +33,83 @@ collections:
     editor:
       preview: true
     fields:
-      - {label: "Title", name: "title", widget: "string", required: true, hint: "50-60 characters for best SEO"}
-      - {label: "URL Slug", name: "slug", widget: "string", required: true, pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Must be lowercase with hyphens only"], hint: "URL-friendly version (e.g., ai-companion-guide)"}
-      - {label: "Description", name: "description", widget: "text", required: true, hint: "150-160 characters - appears in search results"}
-      - {label: "Author", name: "author", widget: "string", default: "Nummi Team", required: true}
-      - {label: "Publish Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, required: true}
-      - {label: "Category", name: "category", widget: "select", options: ["Spiritual Technology", "Meditation", "AI Companions", "Mindfulness", "Personal Growth", "Mental Wellness", "Astrology", "Horoscope"], required: true}
-      - {label: "Tags", name: "tags", widget: "list", required: true, hint: "Keywords for SEO (3-7 tags recommended)", default: ["spiritual AI", "AI companion"]}
-      - {label: "Featured Image", name: "image", widget: "image", required: false, hint: "1200x630px recommended for social sharing"}
-      - {label: "Featured Post", name: "featured", widget: "boolean", default: false, required: false, hint: "Show in featured section on homepage"}
-      - {label: "Body", name: "body", widget: "markdown", required: true, hint: "Write your article content here"}
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        required: true
+        hint: "50-60 characters for best SEO"
 
+      - label: "URL Slug"
+        name: "slug"
+        widget: "string"
+        required: true
+        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Must be lowercase with hyphens only"]
+        hint: "URL-friendly version (e.g., ai-companion-guide)"
+
+      - label: "Description"
+        name: "description"
+        widget: "text"
+        required: true
+        hint: "150-160 characters - appears in search results"
+
+      - label: "Author"
+        name: "author"
+        widget: "string"
+        default: "Nummi Team"
+        required: true
+
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        required: true
+
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "Spiritual Technology"
+          - "Meditation"
+          - "AI Companions"
+          - "Mindfulness"
+          - "Personal Growth"
+          - "Mental Wellness"
+          - "Astrology"
+          - "Horoscope"
+        required: true
+
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: true
+        hint: "Keywords for SEO (3-7 tags recommended)"
+        default: ["spiritual AI", "AI companion"]
+
+      - label: "Featured Image"
+        name: "image"
+        widget: "image"
+        required: false
+        hint: "1200x630px recommended for social sharing"
+
+      - label: "Featured Post"
+        name: "featured"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "Show in featured section on homepage"
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        required: true
+        hint: "Write your article content here"
+
+    # Collection display settings
     summary: "{{title}} - {{date | date('YYYY-MM-DD')}}"
     sortable_fields: ['date', 'title', 'category']
+
+    # Filter options
     view_filters:
       - label: Featured
         field: featured
@@ -45,6 +120,11 @@ collections:
       - label: Meditation
         field: category
         pattern: 'Meditation'
+      - label: Astrology
+        field: category
+        pattern: 'Astrology'
+
+    # Group options
     view_groups:
       - label: Category
         field: category

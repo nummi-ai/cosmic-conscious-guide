@@ -22,8 +22,10 @@ We use **Decap CMS** (formerly Netlify CMS) - a free, user-friendly admin interf
 ### Accessing the CMS
 
 1. **Go to the admin page:** [https://nummi.ai/admin](https://nummi.ai/admin)
-2. **Click "Login with Netlify Identity"**
-3. **Authenticate** using your Nummi team credentials
+2. **Authenticate with GitHub** (OAuth setup required - see `/public/admin/README.md` for setup instructions)
+3. **Start creating content!**
+
+**Note:** If you see authentication errors, contact the admin to complete the GitHub OAuth setup (one-time configuration needed).
 
 ### Creating a Post in the CMS
 
