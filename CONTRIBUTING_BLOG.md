@@ -79,42 +79,6 @@ Write your content using Markdown syntax:
 ![Alt text for images](/path/to/image.jpg)
 ```
 
-### Step 4: Register Your Blog Post
-
-**IMPORTANT:** After creating your markdown file, you must register it in the blog loader:
-
-1. Open `/src/lib/blog.ts`
-2. Add an import for your new post at the top:
-   ```typescript
-   import yourPostSlug from '../content/blog/your-post-slug.md?raw';
-   ```
-3. Add it to the `blogPostsRaw` array:
-   ```typescript
-   const blogPostsRaw = [
-     whatIsSpiritualAI,
-     aiMeditationGuide,
-     bestAICompanionApps,
-     yourPostSlug, // Add your post here
-   ];
-   ```
-
-**Example:**
-
-If you created `meditation-for-beginners.md`, you would add:
-
-```typescript
-// At the top with other imports
-import meditationForBeginners from '../content/blog/meditation-for-beginners.md?raw';
-
-// In the blogPostsRaw array
-const blogPostsRaw = [
-  whatIsSpiritualAI,
-  aiMeditationGuide,
-  bestAICompanionApps,
-  meditationForBeginners, // Your new post
-];
-```
-
 ## 📝 Markdown Syntax Guide
 
 ### Headings
@@ -423,11 +387,11 @@ git checkout -b blog/your-post-slug
 ### Step 2: Add Your Blog Post
 
 ```bash
-git add src/content/blog/your-post-slug.md src/lib/blog.ts
+git add src/content/blog/your-post-slug.md
 git commit -m "Add blog post: Your Post Title"
 ```
 
-**Note:** Make sure you've registered your post in `/src/lib/blog.ts` (see Step 4 in the creation guide above)!
+**Note:** Your blog post will be automatically discovered and processed during the build! No manual registration needed.
 
 ### Step 3: Push and Create PR
 
@@ -441,7 +405,6 @@ Then create a Pull Request on GitHub.
 
 Before submitting, check:
 
-- ✅ **Blog post is registered in `/src/lib/blog.ts`** (import + added to array)
 - ✅ Frontmatter is complete and correct
 - ✅ Title is 50-60 characters
 - ✅ Description is 150-160 characters
