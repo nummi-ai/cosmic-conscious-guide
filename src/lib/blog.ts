@@ -16,7 +16,8 @@ export interface BlogPost {
 
 // Import all markdown files from blog directory
 const blogPosts = import.meta.glob('/src/content/blog/*.md', {
-  as: 'raw',
+  query: '?raw',
+  import: 'default',
   eager: true
 });
 
