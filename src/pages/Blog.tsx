@@ -1,23 +1,21 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { getAllPosts, getAllCategories, getAllTags } from '@/lib/blog';
+import { getAllPosts, getAllCategories } from '@/lib/blog';
 import { SEO } from '@/components/SEO';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Search, Calendar, Clock, Tag } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Search, Calendar, Clock, ArrowRight } from 'lucide-react';
 
 export default function Blog() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
   const allPosts = getAllPosts();
   const categories = getAllCategories();
-  const tags = getAllTags();
 
-  // Filter posts based on search, category, and tag
+  // Filter posts based on search and category
   const filteredPosts = useMemo(() => {
     return allPosts.filter(post => {
       const matchesSearch = searchQuery === '' ||
@@ -26,17 +24,16 @@ export default function Blog() {
         post.content.toLowerCase().includes(searchQuery.toLowerCase());
 
       const matchesCategory = !selectedCategory || post.category === selectedCategory;
-      const matchesTag = !selectedTag || post.tags.includes(selectedTag);
 
-      return matchesSearch && matchesCategory && matchesTag;
+      return matchesSearch && matchesCategory;
     });
-  }, [allPosts, searchQuery, selectedCategory, selectedTag]);
+  }, [allPosts, searchQuery, selectedCategory]);
 
-  const featuredPosts = filteredPosts.filter(post => post.featured);
+  const featuredPosts = filteredPosts.filter(post => post.featured).slice(0, 2);
   const regularPosts = filteredPosts.filter(post => !post.featured);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-warm-cream via-background to-warm-cream">
+    <div className="min-h-screen bg-background">
       <SEO
         title="Blog - Spiritual Insights & AI Meditation Guides | Nummi"
         description="Explore articles about spiritual AI, meditation techniques, mindfulness practices, and personal growth. Learn how AI-powered spiritual companions can enhance your journey."
@@ -44,221 +41,185 @@ export default function Blog() {
       />
 
       {/* Hero Section */}
-      <section className="relative py-20 px-4 overflow-hidden">
-        <div className="absolute inset-0 cosmic-background opacity-20"></div>
-        <div className="relative max-w-6xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-cosmic bg-clip-text text-transparent">
-            Nummi Blog
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Explore spiritual wisdom, meditation techniques, and how AI is transforming personal growth
-          </p>
+      <section className="border-b bg-gradient-to-b from-background to-muted/20">
+        <div className="max-w-6xl mx-auto px-4 py-20">
+          <div className="max-w-3xl">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
+              Blog
+            </h1>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8">
+              Insights on spiritual growth, AI meditation, and conscious living
+            </p>
 
-          {/* Search Bar */}
-          <div className="max-w-2xl mx-auto relative">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
-            <Input
-              type="text"
-              placeholder="Search articles..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-12 py-6 text-lg"
-            />
+            {/* Search Bar */}
+            <div className="relative max-w-xl">
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
+              <Input
+                type="text"
+                placeholder="Search articles..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-12 h-12 text-base"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Filter Section */}
-      <section className="py-8 px-4 border-b">
-        <div className="max-w-6xl mx-auto">
-          {/* Categories */}
-          <div className="mb-6">
-            <h3 className="text-sm font-semibold mb-3 flex items-center gap-2">
-              <Tag className="h-4 w-4" />
-              Categories
-            </h3>
-            <div className="flex flex-wrap gap-2">
+      {/* Category Filter */}
+      <section className="border-b bg-background sticky top-0 z-40 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto px-4 py-4">
+          <div className="flex items-center gap-2 overflow-x-auto pb-2">
+            <Button
+              variant={selectedCategory === null ? "default" : "ghost"}
+              size="sm"
+              onClick={() => setSelectedCategory(null)}
+              className="shrink-0"
+            >
+              All Articles
+            </Button>
+            {categories.map(category => (
               <Button
-                variant={selectedCategory === null ? "default" : "outline"}
+                key={category}
+                variant={selectedCategory === category ? "default" : "ghost"}
                 size="sm"
-                onClick={() => setSelectedCategory(null)}
+                onClick={() => setSelectedCategory(category)}
+                className="shrink-0"
               >
-                All
+                {category}
               </Button>
-              {categories.map(category => (
-                <Button
-                  key={category}
-                  variant={selectedCategory === category ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setSelectedCategory(category)}
-                >
-                  {category}
-                </Button>
-              ))}
-            </div>
-          </div>
-
-          {/* Tags */}
-          <div>
-            <h3 className="text-sm font-semibold mb-3">Popular Tags</h3>
-            <div className="flex flex-wrap gap-2">
-              <Badge
-                variant={selectedTag === null ? "default" : "outline"}
-                className="cursor-pointer"
-                onClick={() => setSelectedTag(null)}
-              >
-                All
-              </Badge>
-              {tags.slice(0, 10).map(tag => (
-                <Badge
-                  key={tag}
-                  variant={selectedTag === tag ? "default" : "outline"}
-                  className="cursor-pointer"
-                  onClick={() => setSelectedTag(tag)}
-                >
-                  {tag}
-                </Badge>
-              ))}
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Featured Posts */}
-      {featuredPosts.length > 0 && (
-        <section className="py-12 px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold mb-8">Featured Articles</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              {featuredPosts.map(post => (
-                <Link key={post.slug} to={`/blog/${post.slug}`}>
-                  <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-primary/20">
-                    {post.image && (
-                      <div className="h-48 overflow-hidden rounded-t-lg">
-                        <img
-                          src={post.image}
-                          alt={post.title}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    )}
-                    <CardHeader>
-                      <div className="flex items-center gap-2 mb-2">
-                        <Badge variant="default">{post.category}</Badge>
-                        <Badge variant="outline">{post.readingTime}</Badge>
-                      </div>
-                      <CardTitle className="text-2xl hover:text-primary transition-colors">
-                        {post.title}
-                      </CardTitle>
-                      <CardDescription className="text-base">
-                        {post.description}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                        <span className="flex items-center gap-1">
-                          <Calendar className="h-4 w-4" />
-                          {new Date(post.date).toLocaleDateString('en-US', {
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric',
-                          })}
-                        </span>
-                        <span>{post.author}</span>
-                      </div>
-                      <div className="flex flex-wrap gap-2 mt-4">
-                        {post.tags.slice(0, 3).map(tag => (
-                          <Badge key={tag} variant="secondary" className="text-xs">
-                            {tag}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </Link>
-              ))}
-            </div>
+      {/* Main Content */}
+      <section className="max-w-6xl mx-auto px-4 py-12">
+        {filteredPosts.length === 0 ? (
+          <div className="text-center py-20">
+            <p className="text-xl text-muted-foreground">
+              No articles found. Try adjusting your search or filters.
+            </p>
           </div>
-        </section>
-      )}
+        ) : (
+          <>
+            {/* Featured Posts */}
+            {featuredPosts.length > 0 && (
+              <div className="mb-16">
+                <h2 className="text-2xl font-bold mb-8">Featured</h2>
+                <div className="grid md:grid-cols-2 gap-8">
+                  {featuredPosts.map(post => (
+                    <Link
+                      key={post.slug}
+                      to={`/blog/${post.slug}`}
+                      className="group"
+                    >
+                      <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 border-primary/10 hover:border-primary/30">
+                        <CardContent className="p-8">
+                          <Badge variant="default" className="mb-4">
+                            {post.category}
+                          </Badge>
+                          <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors leading-tight">
+                            {post.title}
+                          </h3>
+                          <p className="text-muted-foreground mb-6 leading-relaxed">
+                            {post.description}
+                          </p>
+                          <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                            <span className="flex items-center gap-1.5">
+                              <Calendar className="h-3.5 w-3.5" />
+                              {new Date(post.date).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'short',
+                                day: 'numeric',
+                              })}
+                            </span>
+                            <span>·</span>
+                            <span className="flex items-center gap-1.5">
+                              <Clock className="h-3.5 w-3.5" />
+                              {post.readingTime}
+                            </span>
+                          </div>
+                          <div className="mt-6 flex items-center text-primary font-medium group-hover:gap-2 transition-all">
+                            Read article
+                            <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
 
-      {/* Regular Posts */}
-      <section className="py-12 px-4">
-        <div className="max-w-6xl mx-auto">
-          {featuredPosts.length > 0 && (
-            <h2 className="text-3xl font-bold mb-8">All Articles</h2>
-          )}
-
-          {filteredPosts.length === 0 ? (
-            <div className="text-center py-12">
-              <p className="text-xl text-muted-foreground">
-                No articles found. Try adjusting your search or filters.
-              </p>
+            {/* All Posts */}
+            <div>
+              {featuredPosts.length > 0 && (
+                <h2 className="text-2xl font-bold mb-8">All Articles</h2>
+              )}
+              <div className="space-y-8">
+                {regularPosts.map(post => (
+                  <Link
+                    key={post.slug}
+                    to={`/blog/${post.slug}`}
+                    className="group block"
+                  >
+                    <article className="border-b pb-8 hover:bg-muted/30 -mx-4 px-4 py-4 rounded-lg transition-all">
+                      <div className="flex flex-col md:flex-row gap-6">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-3 mb-3">
+                            <Badge variant="outline" className="text-xs font-normal">
+                              {post.category}
+                            </Badge>
+                            <span className="text-xs text-muted-foreground flex items-center gap-1">
+                              <Clock className="h-3 w-3" />
+                              {post.readingTime}
+                            </span>
+                          </div>
+                          <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors leading-tight">
+                            {post.title}
+                          </h3>
+                          <p className="text-muted-foreground mb-4 leading-relaxed">
+                            {post.description}
+                          </p>
+                          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                            <span>{post.author}</span>
+                            <span>·</span>
+                            <span>
+                              {new Date(post.date).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'short',
+                                day: 'numeric',
+                              })}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  </Link>
+                ))}
+              </div>
             </div>
-          ) : (
-            <div className="grid md:grid-cols-3 gap-6">
-              {regularPosts.map(post => (
-                <Link key={post.slug} to={`/blog/${post.slug}`}>
-                  <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                    {post.image && (
-                      <div className="h-40 overflow-hidden rounded-t-lg">
-                        <img
-                          src={post.image}
-                          alt={post.title}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    )}
-                    <CardHeader>
-                      <div className="flex items-center gap-2 mb-2">
-                        <Badge variant="outline" className="text-xs">
-                          {post.category}
-                        </Badge>
-                        <span className="text-xs text-muted-foreground flex items-center gap-1">
-                          <Clock className="h-3 w-3" />
-                          {post.readingTime}
-                        </span>
-                      </div>
-                      <CardTitle className="text-lg hover:text-primary transition-colors line-clamp-2">
-                        {post.title}
-                      </CardTitle>
-                      <CardDescription className="text-sm line-clamp-2">
-                        {post.description}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="text-xs text-muted-foreground">
-                        {new Date(post.date).toLocaleDateString('en-US', {
-                          year: 'numeric',
-                          month: 'short',
-                          day: 'numeric',
-                        })}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </Link>
-              ))}
-            </div>
-          )}
-        </div>
+          </>
+        )}
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-gradient-cosmic">
-        <div className="max-w-4xl mx-auto text-center text-white">
+      <section className="border-t bg-gradient-cosmic">
+        <div className="max-w-3xl mx-auto px-4 py-16 text-center text-white">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Start Your Spiritual Journey?
           </h2>
-          <p className="text-xl mb-8 opacity-90">
+          <p className="text-lg md:text-xl mb-8 opacity-90">
             Download Nummi and experience AI-powered spiritual guidance
           </p>
           <Button
             size="lg"
             variant="secondary"
-            className="text-lg px-8"
+            className="text-lg px-8 shadow-lg"
             asChild
           >
-            <Link to="/download">Download Now</Link>
+            <Link to="/download">Download Nummi</Link>
           </Button>
         </div>
       </section>
