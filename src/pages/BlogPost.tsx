@@ -4,13 +4,13 @@ import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import rehypeSanitize from 'rehype-sanitize';
 import remarkGfm from 'remark-gfm';
-import { getPostBySlug, getAllPosts } from '@/lib/blog';
+import { getPostBySlug, getAllPosts, type BlogPost as BlogPostType } from '@/lib/blog';
 import { BlogPostSEO } from '@/components/SEO';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Calendar, Clock, ArrowLeft, Share2, Check } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, Share2, Check, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 export default function BlogPost() {
@@ -18,18 +18,51 @@ export default function BlogPost() {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [copied, setCopied] = useState(false);
-
-  const post = slug ? getPostBySlug(slug) : undefined;
-  const allPosts = getAllPosts();
-  const relatedPosts = post
-    ? allPosts
-        .filter(p => p.slug !== post.slug && p.category === post.category)
-        .slice(0, 3)
-    : [];
+  const [post, setPost] = useState<BlogPostType | null>(null);
+  const [relatedPosts, setRelatedPosts] = useState<BlogPostType[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    async function fetchPost() {
+      if (!slug) return;
+
+      setLoading(true);
+      try {
+        const [fetchedPost, allPosts] = await Promise.all([
+          getPostBySlug(slug),
+          getAllPosts(),
+        ]);
+
+        setPost(fetchedPost);
+
+        if (fetchedPost) {
+          const related = allPosts
+            .filter(p => p.slug !== fetchedPost.slug && p.category === fetchedPost.category)
+            .slice(0, 3);
+          setRelatedPosts(related);
+        }
+      } catch (error) {
+        console.error('Error fetching blog post:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchPost();
   }, [slug]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="flex items-center">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+          <span className="ml-3 text-lg text-muted-foreground">Loading article...</span>
+        </div>
+      </div>
+    );
+  }
 
   if (!post) {
     return (

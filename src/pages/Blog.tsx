@@ -1,19 +1,39 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getAllPosts, getAllCategories } from '@/lib/blog';
+import { getAllPosts, getAllCategories, type BlogPost } from '@/lib/blog';
 import { SEO } from '@/components/SEO';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import { Search, Calendar, Clock, ArrowRight } from 'lucide-react';
+import { Search, Calendar, Clock, ArrowRight, Loader2 } from 'lucide-react';
 
 export default function Blog() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [allPosts, setAllPosts] = useState<BlogPost[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const allPosts = getAllPosts();
-  const categories = getAllCategories();
+  // Fetch posts and categories on mount
+  useEffect(() => {
+    async function fetchData() {
+      setLoading(true);
+      try {
+        const [posts, cats] = await Promise.all([
+          getAllPosts(),
+          getAllCategories(),
+        ]);
+        setAllPosts(posts);
+        setCategories(cats);
+      } catch (error) {
+        console.error('Error fetching blog data:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
 
   // Filter posts based on search and category
   const filteredPosts = useMemo(() => {
@@ -95,7 +115,12 @@ export default function Blog() {
 
       {/* Main Content */}
       <section className="max-w-6xl mx-auto px-4 py-12">
-        {filteredPosts.length === 0 ? (
+        {loading ? (
+          <div className="flex items-center justify-center py-20">
+            <Loader2 className="h-8 w-8 animate-spin text-primary" />
+            <span className="ml-3 text-lg text-muted-foreground">Loading articles...</span>
+          </div>
+        ) : filteredPosts.length === 0 ? (
           <div className="text-center py-20">
             <p className="text-xl text-muted-foreground">
               No articles found. Try adjusting your search or filters.
