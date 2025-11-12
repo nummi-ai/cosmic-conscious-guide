@@ -11,7 +11,77 @@ Blog posts are stored as Markdown files in:
 
 Each blog post is a `.md` file with frontmatter metadata and Markdown content.
 
-## ✍️ Creating a New Blog Post
+## ✨ Using the CMS (Easiest Method - Recommended!)
+
+**The easiest way to create blog posts is through our Content Management System (CMS).** No coding or GitHub knowledge required!
+
+### What is the CMS?
+
+We use **Decap CMS** (formerly Netlify CMS) - a free, user-friendly admin interface that works like WordPress but saves directly to our GitHub repository.
+
+### Accessing the CMS
+
+1. **Go to the admin page:** [https://nummi.ai/admin](https://nummi.ai/admin)
+2. **Authenticate with GitHub** (OAuth setup required - see `/public/admin/README.md` for setup instructions)
+3. **Start creating content!**
+
+**Note:** If you see authentication errors, contact the admin to complete the GitHub OAuth setup (one-time configuration needed).
+
+### Creating a Post in the CMS
+
+1. **Click "New Blog Posts"** in the left sidebar
+2. **Fill out the form:**
+   - **Title** - Your article title (50-60 characters)
+   - **URL Slug** - Lowercase with hyphens (e.g., `ai-meditation-guide`)
+   - **Description** - 150-160 character summary for SEO
+   - **Author** - Your name (defaults to "Nummi Team")
+   - **Publish Date** - Pick from calendar
+   - **Category** - Select from dropdown (Spiritual Technology, Meditation, AI Companions, etc.)
+   - **Tags** - Add relevant keywords (press Enter after each tag)
+   - **Featured Image** - Upload an image (optional)
+   - **Featured Post** - Toggle ON to show on homepage
+   - **Body** - Write your article using the rich text editor
+
+3. **Use the editor toolbar:**
+   - **Bold**, *italic*, headers, lists, links, images
+   - Switch between "Rich Text" and "Markdown" modes
+   - Preview your post with the eye icon
+
+4. **Save your work:**
+   - **Save Draft** - Saves without publishing
+   - **Publish** - Commits to GitHub and deploys automatically
+
+### Benefits of Using the CMS
+
+✅ **No GitHub/coding knowledge needed** - Point and click interface
+✅ **Visual editor** - See what you're writing in real-time
+✅ **Validation** - Won't let you publish with missing required fields
+✅ **Image uploads** - Drag and drop images directly
+✅ **Auto-save** - Drafts saved automatically
+✅ **Preview** - See exactly how it'll look before publishing
+✅ **Mobile-friendly** - Edit posts from your phone/tablet
+
+### How the CMS Works Behind the Scenes
+
+When you publish a post in the CMS:
+1. It creates a markdown file in `/src/content/blog/`
+2. Commits it to the GitHub repository
+3. Triggers an automatic deployment on Vercel
+4. Your post goes live in 1-2 minutes!
+
+**You get the ease of WordPress with the power of a git-based workflow.**
+
+### When to Use Manual Editing (Advanced)
+
+If you're comfortable with Markdown and GitHub, you can still create posts manually (see section below). This is useful for:
+- Complex formatting or custom HTML
+- Bulk editing multiple posts
+- Using advanced Markdown features
+- Version control and detailed commit messages
+
+---
+
+## ✍️ Creating a New Blog Post (Manual Method)
 
 ### Step 1: Create a New Markdown File
 
@@ -390,6 +460,8 @@ git checkout -b blog/your-post-slug
 git add src/content/blog/your-post-slug.md
 git commit -m "Add blog post: Your Post Title"
 ```
+
+**Note:** Your blog post will be automatically discovered and processed during the build! No manual registration needed.
 
 ### Step 3: Push and Create PR
 
